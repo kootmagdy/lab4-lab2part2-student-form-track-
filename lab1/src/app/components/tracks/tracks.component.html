@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <h2>Tracks</h2>
+    
+    <div class="form-group">
+        <label for="trackSelect">Select Track:</label>
+        <select class="form-control" id="trackSelect" [(ngModel)]="selectedTrack" (change)="onTrackChange()">
+            <option value="" disabled>Select Track</option>
+            <option *ngFor="let item of locations" [value]="item.track">{{ item.track }}</option>
+        </select>
+    </div>
+    
+    <div *ngIf="selectedTrack" class="mt-4">
+        <h3>Locations for {{ selectedTrack }} track:</h3>
+        <ul>
+            <li *ngFor="let location of trackLocations">{{ location }}</li>
+        </ul>
+    </div>
+</div>
